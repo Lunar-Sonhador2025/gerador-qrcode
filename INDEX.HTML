@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador Gratuito de QR Code - Crie QR Codes Online</title>
+    <meta name="description" content="Crie e baixe QR Codes gratuitamente online. Ferramenta simples e rápida para gerar QR Codes personalizados para textos, links e muito mais.">
+    <meta name="keywords" content="gerador qr code, qr code grátis, criar qr code, qr code online, gerar qr code">
+    <meta name="author" content="Lunar Sonhador">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lunar-sonhador2025.github.io/gerador-qrcode/">
+    <meta property="og:title" content="Gerador Gratuito de QR Code">
+    <meta property="og:description" content="Crie e baixe QR Codes gratuitamente online. Gerador simples e rápido.">
+    <meta property="og:image" content="https://lunar-sonhador2025.github.io/gerador-qrcode/preview.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lunar-sonhador2025.github.io/gerador-qrcode/">
+    <meta property="twitter:title" content="Gerador Gratuito de QR Code">
+    <meta property="twitter:description" content="Crie e baixe QR Codes gratuitamente online. Gerador simples e rápido.">
+    <meta property="twitter:image" content="https://lunar-sonhador2025.github.io/gerador-qrcode/preview.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lunar-sonhador2025.github.io/gerador-qrcode/">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        header p {
+            color: #7f8c8d;
+        }
+        .input-section {
+            margin-bottom: 30px;
+        }
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            height: 120px;
+            resize: none;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        textarea:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+        .char-counter {
+            text-align: right;
+            margin-top: 5px;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        button:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+        }
+        .qr-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #qrcode-container {
+            width: 256px;
+            height: 256px;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        #download-btn {
+            max-width: 256px;
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #95a5a6;
+            font-size: 14px;
+        }
+        .seo-content {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            text-align: left;
+        }
+        .seo-content h2 {
+            color: #2c3e50;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        .seo-content p, .seo-content ul {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .seo-content ul {
+            padding-left: 20px;
+        }
+        .seo-content li {
+            margin-bottom: 5px;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            #qrcode-container {
+                width: 200px;
+                height: 200px;
+            }
+            #download-btn {
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gerador Gratuito de QR Code</h1>
+            <p>Crie e baixe QR Codes gratuitamente para seus links, textos e contatos</p>
+        </header>
+        
+        <main>
+            <div class="input-section">
+                <textarea id="text-input" placeholder="Digite aqui o conteúdo" maxlength="2000"></textarea>
+                <div class="char-counter">
+                    <span id="char-count">0</span>/2000 caracteres
+                </div>
+                <button id="generate-btn">Gerar QR Code</button>
+                <div class="loading" id="loading">
+                    <div class="loading-spinner"></div>
+                    <p>Gerando QR Code...</p>
+                </div>
+            </div>
+            
+            <div class="qr-section">
+                <div id="qrcode-container">
+                    <div id="qrcode"></div>
+                </div>
+                <button id="download-btn" disabled>Baixar QR Code</button>
+            </div>
+        </main>
+        
+        <section class="seo-content">
+            <div class="container">
+                <h2>Como usar nosso Gerador de QR Code</h2>
+                <p>Usar nosso gerador de QR code é muito simples. Digite o texto ou cole o link que deseja transformar em QR Code, clique no botão "Gerar QR Code" e pronto! Você pode baixar a imagem em alta qualidade para usar em seus materiais.</p>
+                
+                <h2>Para que serve um QR Code?</h2>
+                <p>QR Codes são muito versáteis e podem ser usados para:</p>
+                <ul>
+                    <li>Compartilhar links de sites e redes sociais</li>
+                    <li>Informações de contato e cartões virtuais</li>
+                    <li>Cardápios digitais para restaurantes</li>
+                    <li>Links para download de aplicativos</li>
+                    <li>Acesso a Wi-Fi sem digitar senhas</li>
+                </ul>
+                
+                <h2>Por que escolher nosso Gerador de QR Code</h2>
+                <p>Nossa ferramenta é totalmente gratuita, não requer cadastro e funciona diretamente no seu navegador. Os QR Codes gerados são de alta qualidade e compatíveis com todos os leitores de QR Code modernos.</p>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2024 Gerador Gratuito de QR Code</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Elementos DOM
+            const textInput = document.getElementById("text-input");
+            const charCount = document.getElementById("char-count");
+            const generateBtn = document.getElementById("generate-btn");
+            const downloadBtn = document.getElementById("download-btn");
+            const qrcodeContainer = document.getElementById("qrcode");
+            const loadingElement = document.getElementById("loading");
+            
+            // Variáveis de controle
+            let lastGeneratedTime = 0;
+            const cooldownTime = 2000; // 2 segundos de cooldown
+            let qrCodeGenerated = false;
+            let qrInstance = null;
+            
+            // Atualizar contador de caracteres
+            textInput.addEventListener("input", () => {
+                const count = textInput.value.length;
+                charCount.textContent = count;
+                
+                if (count > 0) {
+                    generateBtn.removeAttribute("disabled");
+                } else {
+                    generateBtn.setAttribute("disabled", true);
+                }
+            });
+            
+            // Gerar QR Code
+            generateBtn.addEventListener("click", () => {
+                const text = textInput.value.trim();
+                
+                if (!text) {
+                    alert("Por favor, digite algum conteúdo para gerar o QR Code.");
+                    return;
+                }
+                
+                // Proteção contra spam
+                const currentTime = Date.now();
+                if (currentTime - lastGeneratedTime < cooldownTime) {
+                    const waitTime = Math.ceil((cooldownTime - (currentTime - lastGeneratedTime)) / 1000);
+                    alert(`Aguarde ${waitTime} segundos antes de gerar um novo QR Code.`);
+                    return;
+                }
+                
+                lastGeneratedTime = currentTime;
+                
+                // Mostrar indicador de carregamento
+                loadingElement.style.display = "block";
+                
+                // Limpar container anterior
+                qrcodeContainer.innerHTML = "";
+                
+                // Usar um timeout para permitir que a UI atualize antes de gerar o QR
+                setTimeout(() => {
+                    try {
+                        // Gerar novo QR Code com nível de correção de erro mais alto para textos longos
+                        qrInstance = new QRCode(qrcodeContainer, {
+                            text: text,
+                            width: 256,
+                            height: 256,
+                            colorDark: "#000000",
+                            colorLight: "#ffffff",
+                            correctLevel: QRCode.CorrectLevel.M // Nível médio de correção de erro
+                        });
+                        
+                        qrCodeGenerated = true;
+                        downloadBtn.removeAttribute("disabled");
+                    } catch (error) {
+                        console.error("Erro ao gerar QR Code:", error);
+                        alert("Ocorreu um erro ao gerar o QR Code. O texto pode ser muito longo ou conter caracteres não suportados.");
+                    } finally {
+                        // Esconder indicador de carregamento
+                        loadingElement.style.display = "none";
+                    }
+                }, 100);
+            });
+            
+            // Baixar QR Code
+            downloadBtn.addEventListener("click", () => {
+                if (!qrCodeGenerated) {
+                    alert("Primeiro gere um QR Code.");
+                    return;
+                }
+                
+                const img = qrcodeContainer.querySelector("img");
+                if (!img) {
+                    alert("Erro ao encontrar a imagem do QR Code.");
+                    return;
+                }
+                
+                // Criar canvas para converter a imagem
+                const canvas = document.createElement("canvas");
+                canvas.width = img.width;
+                canvas.height = img.height;
+                
+                // Desenhar a imagem no canvas
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(img, 0, 0);
+                
+                // Criar link temporário para download
+                const link = document.createElement("a");
+                link.download = "qrcode.png";
+                link.href = canvas.toDataURL("image/png");
+                link.click();
+            });
+        });
+    </script>
+</body>
+</html>
